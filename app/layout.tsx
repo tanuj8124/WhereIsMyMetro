@@ -8,6 +8,24 @@ export const metadata: Metadata = {
   title: 'Where Is My Metro',
   description: 'Track metro timings with ease, simple timer for upcoming metro. Currently available for ahemdabad metro .. expanding soon',
   generator: 'Tanuj kashyap & Bhavya Negi',
+  
+  openGraph: {
+    title: "Best Coffee Shop in NYC | MyCafe",
+    description: "Track metro timings with ease, simple timer for upcoming metro. Currently available for ahemdabad metro .. expanding soon",
+    url: "https://whereismymetro.com",
+    siteName: "Where is my metro",
+    images: [
+      {
+        url: "/fvu.jpg",
+        width: 1200,
+        height: 630,
+        alt: "WhereIsMyMetro",
+      },
+    ],
+    locale: "en_US",
+    type: "website",
+  },
+  siteName: "WhereIsMyMetro",
   keywords: ['metro', 'Ahemdabad Metro', 'metro timing', 'whereismymetro', 'wher is my metro', 'metro-timming', 'metro-ahemdabad', 'track-metro', 'metrotimingahemdabad', 'metro-timming', 'track-metro', "ahmedabad metro",
     "ahmedabad metro map",
     "ahmedabad metro route",
