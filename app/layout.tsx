@@ -26,7 +26,7 @@ export const metadata: Metadata = {
     type: "website",
   },
   siteName: "WhereIsMyMetro",
-  keywords: ['metro', 'Ahemdabad Metro', 'metro timing', 'whereismymetro', 'wher is my metro', 'metro-timming', 'metro-ahemdabad', 'track-metro', 'metrotimingahemdabad', 'metro-timming', 'track-metro', "ahmedabad metro",
+  keywords: ["where is my metro",'metro', 'Ahemdabad Metro', 'metro timing', 'whereismymetro', 'wher is my metro', 'metro-timming', 'metro-ahemdabad', 'track-metro', 'metrotimingahemdabad', 'metro-timming', 'track-metro', "ahmedabad metro",
     "ahmedabad metro map",
     "ahmedabad metro route",
     "ahmedabad metro timings",
