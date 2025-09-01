@@ -45,7 +45,7 @@ export default function Page() {
               <CardTitle className="flex items-center justify-between">
                 <span>Towards APMC</span>
                 {nextToAPMC[0] ? (
-                  <span className="text-sm font-medium text-teal-700">Next at Metro <span className="whitespace-nowrap">{formatHMPM(nextToAPMC[0])}</span></span>
+                  <span className="text-sm font-medium text-teal-700">Next Metro at <span className="whitespace-nowrap">{formatHMPM(nextToAPMC[0])}</span></span>
                 ) : (
                   <span className="text-sm text-red-600">No times</span>
                 )}
@@ -70,7 +70,7 @@ export default function Page() {
               <CardTitle className="flex items-center justify-between">
                 <span>Towards Sachivalaya/GIFT</span>
                 {nextToGift[0] ? (
-                  <span className="text-sm font-medium text-teal-700">Next at Metro <span className="whitespace-nowrap">{formatHMPM(nextToGift[0])}</span></span>
+                  <span className="text-sm font-medium text-teal-700">Next Metro at<span className="whitespace-nowrap">{formatHMPM(nextToGift[0])}</span></span>
                 ) : (
                   <span className="text-sm text-red-600">No times</span>
                 )}
