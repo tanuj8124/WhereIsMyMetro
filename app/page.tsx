@@ -4,7 +4,7 @@ import Image from "next/image"
 import { useMemo, useState } from "react"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { STATIONS, type StationKey } from "@/data/schedule"
-import { nextNDepartures, formatHM } from "@/lib/time"
+import { nextNDepartures, formatHM, formatHMPM } from "@/lib/time"
 import { Countdown } from "@/components/countdown"
 import { StationSelect } from "@/components/station-select"
 
@@ -34,9 +34,7 @@ export default function Page() {
           </CardHeader>
           <CardContent>
             <StationSelect value={station} onChange={setStation} />
-            <p className="mt-3 text-xs text-gray-500">
-              Edit data/schedule.ts to paste the full timetable from the image.
-            </p>
+            
           </CardContent>
         </Card>
 
@@ -46,18 +44,21 @@ export default function Page() {
               <CardTitle className="flex items-center justify-between">
                 <span>Towards APMC</span>
                 {nextToAPMC[0] ? (
-                  <span className="text-sm font-medium text-teal-700">Next at {formatHM(nextToAPMC[0])}</span>
+                  <span className="text-sm font-medium text-teal-700">Next at Metro <span className="whitespace-nowrap">{formatHMPM(nextToAPMC[0])}</span></span>
                 ) : (
                   <span className="text-sm text-red-600">No times</span>
                 )}
               </CardTitle>
-              <CardDescription>Departures from {times.label}</CardDescription>
+              
             </CardHeader>
             <CardContent>
-              {nextToAPMC[0] && <Countdown target={nextToAPMC[0]} />}
+              {nextToAPMC[0] && <div>
+                <span>Countdown:</span>
+                <Countdown target={nextToAPMC[0]} />
+                </div>}
               {nextToAPMC[1] && (
                 <div className="mt-3 text-sm text-gray-600">
-                  Following: <span className="font-medium">{formatHM(nextToAPMC[1])}</span>
+                  Following: <span className="font-medium">{formatHMPM(nextToAPMC[1])}</span>
                 </div>
               )}
             </CardContent>
@@ -68,18 +69,22 @@ export default function Page() {
               <CardTitle className="flex items-center justify-between">
                 <span>Towards Sachivalaya/GIFT</span>
                 {nextToGift[0] ? (
-                  <span className="text-sm font-medium text-teal-700">Next at {formatHM(nextToGift[0])}</span>
+                  <span className="text-sm font-medium text-teal-700">Next at Metro <span className="whitespace-nowrap">{formatHMPM(nextToGift[0])}</span></span>
                 ) : (
                   <span className="text-sm text-red-600">No times</span>
                 )}
               </CardTitle>
-              <CardDescription>Departures from {times.label}</CardDescription>
+              
             </CardHeader>
             <CardContent>
-              {nextToGift[0] && <Countdown target={nextToGift[0]} />}
+              {nextToGift[0] && <div>
+                <span>Countdown:</span>
+                <Countdown target={nextToGift[0]} />
+                </div>}
+                
               {nextToGift[1] && (
                 <div className="mt-3 text-sm text-gray-600">
-                  Following: <span className="font-medium">{formatHM(nextToGift[1])}</span>
+                  Following: <span className="font-medium">{formatHMPM(nextToGift[1])}</span>
                 </div>
               )}
             </CardContent>

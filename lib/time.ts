@@ -21,6 +21,19 @@ export function formatHM(d: Date): string {
   const m = String(d.getMinutes()).padStart(2, "0")
   return `${h}:${m}`
 }
+export function formatHMPM(d: Date): string {
+  let hours = d.getHours();
+  const minutes = String(d.getMinutes()).padStart(2, "0");
+  const ampm = hours >= 12 ? "PM" : "AM";
+
+  // Convert to 12-hour format
+  hours = hours % 12;
+  hours = hours ? hours : 12; // hour '0' should be '12'
+
+  const h = String(hours).padStart(2, "0");
+  return `${h}:${minutes} ${ampm}`;
+}
+
 
 export function partsUntil(target: Date, now = new Date()) {
   const ms = Math.max(0, target.getTime() - now.getTime())

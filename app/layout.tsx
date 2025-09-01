@@ -8,7 +8,13 @@ export const metadata: Metadata = {
   title: 'Where Is My Metro',
   description: 'Track metro timings with ease, simple timer for upcoming metro. Currently available for ahemdabad metro .. expanding soon',
   generator: 'Tanuj kashyap & Bhavya Negi',
-  
+  icons: {
+    icon: [
+      { url: "/fav-icon.png", sizes: "any" },
+      { url: "/favicon-32x32.png", type: "image/png", sizes: "32x32" },
+      { url: "/favicon-16x16.png", type: "image/png", sizes: "16x16" },
+    ],
+  }
 }
 
 export default function RootLayout({
