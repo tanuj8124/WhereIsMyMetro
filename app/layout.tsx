@@ -28,6 +28,16 @@ export const metadata: Metadata = {
   },
   
   keywords: ["where is my metro",'metro', 'Ahmedabad Metro', 'metro timing', 'whereismymetro', 'wher is my metro', 'metro-timming', 'metro-Ahmedabad', 'track-metro', 'metrotimingAhmedabad', 'metro-timming', 'track-metro', "ahmedabad metro",
+    "where is my metro",
+    "Ahmedabad Metro",
+    "Ahmedabad Metro timings",
+    "Ahmedabad Metro route",
+    "Ahmedabad Metro stations",
+    "Ahmedabad Metro fare",
+    "Ahmedabad Metro live tracker",
+    "Ahmedabad Metro app",
+    "Ahmedabad Metro schedule",
+    "Ahmedabad Metro ticket booking",
     "ahmedabad metro map",
     "ahmedabad metro route",
     "ahmedabad metro timings",
@@ -51,6 +61,14 @@ export const metadata: Metadata = {
     "ahmedabad metro purple line",
     "ahmedabad metro green line",
     "ahmedabad metro phase 2"],
+     alternates: {
+    canonical: "https://whereismymetro.com",
+  },
+     robots: {
+    index: true,
+    follow: true,
+  },
+    
   icons: {
     icon: [
       { url: "/fvu.png", sizes: "any" },
