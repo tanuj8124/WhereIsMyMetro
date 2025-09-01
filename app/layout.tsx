@@ -6,15 +6,15 @@ import './globals.css'
 import Script from 'next/script'
 
 export const metadata: Metadata = {
-  title: 'Where Is My Metro',
-  description: 'Track metro timings with ease, simple timer for upcoming metro. Currently available for ahemdabad metro .. expanding soon',
+  title: 'Where Is My Metro | Ahmedabad Metro Timings & Live Tracker',
+  description: 'Check live Ahmedabad Metro timings and schedules with Where Is My Metro. Simple metro tracker with real-time updates, expanding to more cities soon.',
   generator: 'Tanuj kashyap & Bhavya Negi',
   
   openGraph: {
     title: "Where Is My Metro? | Metro tracker",
-    description: "Track metro timings with ease, simple timer for upcoming metro. Currently available for ahemdabad metro .. expanding soon",
+    description: "Track metro timings with ease, simple timer for upcoming metro. Currently available for Ahmedabad metro .. expanding soon",
     url: "https://whereismymetro.com",
-    siteName: "Where is my metro",
+    siteName: "Where is my metro | track metro timing and status",
     images: [
       {
         url: "/fvu.png",
@@ -27,7 +27,7 @@ export const metadata: Metadata = {
     type: "website",
   },
   
-  keywords: ["where is my metro",'metro', 'Ahemdabad Metro', 'metro timing', 'whereismymetro', 'wher is my metro', 'metro-timming', 'metro-ahemdabad', 'track-metro', 'metrotimingahemdabad', 'metro-timming', 'track-metro', "ahmedabad metro",
+  keywords: ["where is my metro",'metro', 'Ahmedabad Metro', 'metro timing', 'whereismymetro', 'wher is my metro', 'metro-timming', 'metro-Ahmedabad', 'track-metro', 'metrotimingAhmedabad', 'metro-timming', 'track-metro', "ahmedabad metro",
     "ahmedabad metro map",
     "ahmedabad metro route",
     "ahmedabad metro timings",

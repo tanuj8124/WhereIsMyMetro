@@ -92,7 +92,7 @@ export default function Page() {
             </CardContent>
           </Card>
         </div>
-        <Adsense slot="1" />
+        <Adsense slot="2434725409" />
 
         <Card>
           <CardHeader>
