@@ -7,6 +7,7 @@ import { STATIONS, type StationKey } from "@/data/schedule"
 import { nextNDepartures, formatHM, formatHMPM } from "@/lib/time"
 import { Countdown } from "@/components/countdown"
 import { StationSelect } from "@/components/station-select"
+import Adsense from "@/components/Adsense"
 
 export default function Page() {
   const [station, setStation] = useState<StationKey>("sachivalaya")
@@ -91,6 +92,7 @@ export default function Page() {
             </CardContent>
           </Card>
         </div>
+        <Adsense slot="1" />
 
         <Card>
           <CardHeader>
