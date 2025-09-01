@@ -3,6 +3,7 @@ import { GeistSans } from 'geist/font/sans'
 import { GeistMono } from 'geist/font/mono'
 import { Analytics } from '@vercel/analytics/next'
 import './globals.css'
+import Script from 'next/script'
 
 export const metadata: Metadata = {
   title: 'Where Is My Metro',
@@ -25,7 +26,7 @@ export const metadata: Metadata = {
     locale: "en_US",
     type: "website",
   },
-  siteName: "WhereIsMyMetro",
+  
   keywords: ["where is my metro",'metro', 'Ahemdabad Metro', 'metro timing', 'whereismymetro', 'wher is my metro', 'metro-timming', 'metro-ahemdabad', 'track-metro', 'metrotimingahemdabad', 'metro-timming', 'track-metro', "ahmedabad metro",
     "ahmedabad metro map",
     "ahmedabad metro route",
@@ -69,6 +70,9 @@ export default function RootLayout({
       <body className={`font-sans ${GeistSans.variable} ${GeistMono.variable}`}>
         {children}
         <Analytics />
+        <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3402648015244749"
+     crossorigin="anonymous"></script>
+
       </body>
     </html>
   )
