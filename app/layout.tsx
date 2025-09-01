@@ -10,13 +10,13 @@ export const metadata: Metadata = {
   generator: 'Tanuj kashyap & Bhavya Negi',
   
   openGraph: {
-    title: "Best Coffee Shop in NYC | MyCafe",
+    title: "Where Is My Metro? | Metro tracker",
     description: "Track metro timings with ease, simple timer for upcoming metro. Currently available for ahemdabad metro .. expanding soon",
     url: "https://whereismymetro.com",
     siteName: "Where is my metro",
     images: [
       {
-        url: "/fvu.jpg",
+        url: "/fvu.png",
         width: 1200,
         height: 630,
         alt: "WhereIsMyMetro",
