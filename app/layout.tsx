@@ -5,9 +5,10 @@ import { Analytics } from '@vercel/analytics/next'
 import './globals.css'
 
 export const metadata: Metadata = {
-  title: 'v0 App',
-  description: 'Created with v0',
-  generator: 'v0.app',
+  title: 'Where Is My Metro',
+  description: 'Track metro timings with ease, simple timer for upcoming metro. Currently available for ahemdabad metro .. expanding soon',
+  generator: 'Tanuj kashyap & Bhavya Negi',
+  
 }
 
 export default function RootLayout({
