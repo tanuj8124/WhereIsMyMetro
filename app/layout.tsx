@@ -8,6 +8,7 @@ export const metadata: Metadata = {
   title: 'Where Is My Metro',
   description: 'Track metro timings with ease, simple timer for upcoming metro. Currently available for ahemdabad metro .. expanding soon',
   generator: 'Tanuj kashyap & Bhavya Negi',
+  keywords: ['metro', 'Ahemdabad Metro', 'metro timing', 'whereismymetro','wher is my metro', 'metro-timming','metro-ahemdabad','track-metro','metrotimingahemdabad','metro-timming','track-metro'],
   icons: {
     icon: [
       { url: "/fav-icon.png", sizes: "any" },
