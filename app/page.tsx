@@ -104,7 +104,7 @@ export default function Page() {
         </Card>
 
         <footer className="py-6 text-center text-xs text-gray-500">
-          Color palette: teal (primary), white and gray (neutrals), amber accent.
+          Created By Tanuj Kashyap on idea of Bhavya Negi
         </footer>
       </section>
     </main>
