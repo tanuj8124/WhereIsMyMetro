@@ -1,81 +1,89 @@
-import type { Metadata } from 'next'
-import { GeistSans } from 'geist/font/sans'
-import { GeistMono } from 'geist/font/mono'
-import { Analytics } from '@vercel/analytics/next'
-import './globals.css'
-import Script from 'next/script'
+import type React from "react"
+import type { Metadata } from "next"
+import { GeistSans } from "geist/font/sans"
+import { GeistMono } from "geist/font/mono"
+import { Analytics } from "@vercel/analytics/next"
+import { ThemeProvider } from "@/components/theme-provider"
+import { Suspense } from "react"
+import "./globals.css"
 
 export const metadata: Metadata = {
-  title: 'Where Is My Metro | Ahmedabad Metro Timings & Live Tracker',
-  description: 'Check live Ahmedabad Metro timings and schedules with Where Is My Metro. Simple metro tracker with real-time updates, expanding to more cities soon.',
-  generator: 'Tanuj kashyap & Bhavya Negi',
-  
+  title: "WhereIsMyMetro - Track Ahmedabad Metro in Real-Time",
+  description:
+    "Stay updated with live Ahmedabad metro information. Track your metro in real-time with accurate arrival times, route planning, and station updates.",
+  keywords: [
+    "Ahmedabad Metro",
+    "Metro Tracking",
+    "Real-time Metro",
+    "Public Transport",
+    "Gujarat Metro",
+    "Metro Schedule",
+    "Train Timing",
+    "Metro App",
+  ],
+  authors: [{ name: "Tanuj kashyap" }],
+  creator: "WhereIsMyMetro",
+  publisher: "Tanuj kashyap",
+  formatDetection: {
+    email: false,
+    address: false,
+    telephone: false,
+  },
+  metadataBase: new URL("https://whereismymetro.vercel.app"),
+  alternates: {
+    canonical: "/",
+  },
   openGraph: {
-    title: "Where Is My Metro? | Metro tracker",
-    description: "Track metro timings with ease, simple timer for upcoming metro. Currently available for Ahmedabad metro .. expanding soon",
+    title: "WhereIsMyMetro - Track Ahmedabad Metro in Real-Time",
+    description:
+      "Stay updated with live Ahmedabad metro information. Track your metro in real-time with accurate arrival times and route planning.",
     url: "https://whereismymetro.com",
-    siteName: "Where is my metro | track metro timing and status",
+    siteName: "WhereIsMyMetro",
     images: [
       {
         url: "/fvu.png",
         width: 1200,
         height: 630,
-        alt: "WhereIsMyMetro",
+        alt: "WhereIsMyMetro - Real-time Ahmedabad Metro Tracking",
       },
     ],
     locale: "en_US",
     type: "website",
   },
-  
-  keywords: ["where is my metro",'metro', 'Ahmedabad Metro', 'metro timing', 'whereismymetro', 'wher is my metro', 'metro-timming', 'metro-Ahmedabad', 'track-metro', 'metrotimingAhmedabad', 'metro-timming', 'track-metro', "ahmedabad metro",
-    "where is my metro",
-    "Ahmedabad Metro",
-    "Ahmedabad Metro timings",
-    "Ahmedabad Metro route",
-    "Ahmedabad Metro stations",
-    "Ahmedabad Metro fare",
-    "Ahmedabad Metro live tracker",
-    "Ahmedabad Metro app",
-    "Ahmedabad Metro schedule",
-    "Ahmedabad Metro ticket booking",
-    "ahmedabad metro map",
-    "ahmedabad metro route",
-    "ahmedabad metro timings",
-    "ahmedabad metro stations",
-    "ahmedabad metro fare",
-    "ahmedabad metro live tracking",
-    "ahmedabad metro train status",
-    "ahmedabad metro app",
-    "ahmedabad metro tracker",
-    "ahmedabad metro route finder",
-    "ahmedabad metro nearest station",
-    "ahmedabad metro blue line",
-    "ahmedabad metro red line",
-    "ahmedabad metro timetable",
-    "ahmedabad metro schedule",
-    "ahmedabad metro tickets online",
-    "ahmedabad metro smart card",
-    "ahmedabad metro news",
-    "ahmedabad metro updates",
-    "ahmedabad metro extension",
-    "ahmedabad metro purple line",
-    "ahmedabad metro green line",
-    "ahmedabad metro phase 2"],
-     alternates: {
-    canonical: "https://whereismymetro.com",
+  twitter: {
+    card: "summary_large_image",
+    title: "WhereIsMyMetro - Track Ahmedabad Metro in Real-Time",
+    description:
+      "Stay updated with live Ahmedabad metro information. Track your metro in real-time with accurate arrival times and route planning.",
+    images: ["/twitter-image.jpg"],
+    creator: "@whereismymetro",
   },
-     robots: {
+  robots: {
     index: true,
     follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-video-preview": -1,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+    },
   },
-    
   icons: {
     icon: [
-      { url: "/fvu.png", sizes: "any" },
-      { url: "/favicon-32x32.png", type: "image/png", sizes: "32x32" },
-      { url: "/favicon-16x16.png", type: "image/png", sizes: "16x16" },
+      { url: "/fvu.png", sizes: "16x16", type: "image/png" },
+      { url: "/favicon-32x32.jpg", sizes: "32x32", type: "image/jpeg" },
     ],
-  }
+    apple: [{ url: "/apple-touch-icon.jpg", sizes: "180x180", type: "image/jpeg" }],
+    other: [
+      { url: "/fvu.png", sizes: "192x192", type: "image/png" },
+      { url: "/fvu.png", sizes: "512x512", type: "image/png" },
+    ],
+  },
+  manifest: "/site.webmanifest",
+  verification: {
+    google: "your-google-verification-code",
+  },
 }
 
 export default function RootLayout({
@@ -84,12 +92,55 @@ export default function RootLayout({
   children: React.ReactNode
 }>) {
   return (
-    <html lang="en">
+    <html lang="en" suppressHydrationWarning>
+      <head>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "WebApplication",
+              name: "WhereIsMyMetro",
+              description: "Track Ahmedabad Metro in Real-Time with accurate arrival times and route planning",
+              url: "https://whereismymetro.vercel.app",
+              applicationCategory: "TransportationApplication",
+              operatingSystem: "Web Browser",
+              offers: {
+                "@type": "Offer",
+                price: "0",
+                priceCurrency: "USD",
+              },
+              author: {
+                "@type": "Organization",
+                name: "WhereIsMyMetro Team",
+              },
+              publisher: {
+                "@type": "Organization",
+                name: "WhereIsMyMetro",
+              },
+              serviceArea: {
+                "@type": "City",
+                name: "Ahmedabad",
+                addressCountry: "IN",
+              },
+              featureList: [
+                "Real-time metro tracking",
+                "Route planning",
+                "Smart notifications",
+                "Station locator",
+                "Offline support",
+              ],
+            }),
+          }}
+        />
+      </head>
       <body className={`font-sans ${GeistSans.variable} ${GeistMono.variable}`}>
-        {children}
+        <Suspense fallback={null}>
+          <ThemeProvider attribute="class" defaultTheme="system" enableSystem disableTransitionOnChange>
+            {children}
+          </ThemeProvider>
+        </Suspense>
         <Analytics />
-        <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3402648015244749" crossorigin="anonymous"></script>
-
       </body>
     </html>
   )

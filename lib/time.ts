@@ -1,45 +1,50 @@
-export function parseTimeAt(dateRef: Date, hhmm: string): Date {
-  const [h, m] = hhmm.split(":").map(Number)
-  const d = new Date(dateRef)
-  d.setHours(h, m, 0, 0)
-  return d
+export function nextNDepartures(times: string[], n = 2): Date[] {
+  const now = new Date()
+  const currentTime = now.getHours() * 60 + now.getMinutes()
+
+  const departures: Date[] = []
+
+  for (const timeStr of times) {
+    const [hours, minutes] = timeStr.split(":").map(Number)
+    const departureTime = hours * 60 + minutes
+
+    if (departureTime > currentTime) {
+      const departureDate = new Date(now)
+      departureDate.setHours(hours, minutes, 0, 0)
+      departures.push(departureDate)
+
+      if (departures.length >= n) break
+    }
+  }
+
+  // If we don't have enough departures for today, add tomorrow's first departures
+  if (departures.length < n) {
+    const tomorrow = new Date(now)
+    tomorrow.setDate(tomorrow.getDate() + 1)
+
+    for (let i = 0; i < Math.min(times.length, n - departures.length); i++) {
+      const [hours, minutes] = times[i].split(":").map(Number)
+      const departureDate = new Date(tomorrow)
+      departureDate.setHours(hours, minutes, 0, 0)
+      departures.push(departureDate)
+    }
+  }
+
+  return departures
 }
 
-export function nextNDepartures(times: string[], now = new Date(), n = 2): Date[] {
-  if (!times?.length) return []
-  // Build candidates for today and next day to handle wrap
-  const today = times.map((t) => parseTimeAt(now, t))
-  const tmr = new Date(now)
-  tmr.setDate(tmr.getDate() + 1)
-  const tomorrow = times.map((t) => parseTimeAt(tmr, t))
-
-  return [...today, ...tomorrow].filter((d) => d.getTime() > now.getTime()).slice(0, n)
+export function formatHM(date: Date): string {
+  return date.toLocaleTimeString("en-US", {
+    hour: "2-digit",
+    minute: "2-digit",
+    hour12: false,
+  })
 }
 
-export function formatHM(d: Date): string {
-  const h = String(d.getHours()).padStart(2, "0")
-  const m = String(d.getMinutes()).padStart(2, "0")
-  return `${h}:${m}`
-}
-export function formatHMPM(d: Date): string {
-  let hours = d.getHours();
-  const minutes = String(d.getMinutes()).padStart(2, "0");
-  const ampm = hours >= 12 ? "PM" : "AM";
-
-  // Convert to 12-hour format
-  hours = hours % 12;
-  hours = hours ? hours : 12; // hour '0' should be '12'
-
-  const h = String(hours).padStart(2, "0");
-  return `${h}:${minutes} ${ampm}`;
-}
-
-
-export function partsUntil(target: Date, now = new Date()) {
-  const ms = Math.max(0, target.getTime() - now.getTime())
-  const totalSec = Math.floor(ms / 1000)
-  const hours = Math.floor(totalSec / 3600)
-  const minutes = Math.floor((totalSec % 3600) / 60)
-  const seconds = totalSec % 60
-  return { hours, minutes, seconds, ms }
+export function formatHMPM(date: Date): string {
+  return date.toLocaleTimeString("en-US", {
+    hour: "numeric",
+    minute: "2-digit",
+    hour12: true,
+  })
 }
